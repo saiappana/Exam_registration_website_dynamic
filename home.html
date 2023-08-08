@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Navigation Bar Example</title>
+    <script
+      src="https://kit.fontawesome.com/98e7470bfd.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <style>
+      .navbar {
+        background-color: #d22626;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .navbar-brand,
+      .navbar-nav a {
+        color: white;
+        font-size: 20px;
+      }
+
+      .navbar-brand:hover,
+      .navbar-nav a:hover {
+        color: #ffb300;
+      }
+
+      .navbar-brand img {
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      #logo {
+        height: 70px;
+      }
+
+      .icons {
+        height: 60px;
+        width: 60px;
+        background-color: #d22626;
+        border-radius: 13px;
+      }
+
+      .icon-img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+
+      #info {
+        background-color: #d4f5ff;
+        padding: 5px;
+        border-radius: 13px;
+      }
+
+      #info_and_guide {
+        text-align: center;
+        font-size: larger;
+        font-weight: 600;
+      }
+
+      ol li {
+        padding: 2px 0px;
+      }
+
+      #footer {
+        padding: 50px;
+      }
+
+      footer {
+        padding: 8vw;
+        background-color: #101c32;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      footer .footer-col {
+        padding-bottom: 40px;
+      }
+
+      footer h3 {
+        color: rgb(241, 240, 245);
+        font-weight: 600;
+        padding-bottom: 20px;
+      }
+
+      footer li {
+        list-style: none;
+        color: #7b838a;
+        padding: 10px 0;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      footer li:hover {
+        color: rgb(241, 240, 245);
+      }
+
+      footer p {
+        color: #7b838a;
+      }
+
+      footer .subscribe {
+        margin-top: 20px;
+      }
+
+      footer input {
+        width: 220px;
+        padding: 15px 12px;
+        background: #334f6c;
+        border: none;
+        outline: none;
+        color: #fff;
+      }
+
+      footer .subscribe a {
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 12px 15px;
+        background-color: #fff;
+        font-weight: 600;
+      }
+
+      footer .subscribe a.yellow {
+        color: #2c2c2c;
+        background-color: #fdc93b;
+        transition: 0.3s ease;
+      }
+
+      footer .subscribe a.yellow:hover {
+        color: rgb(21, 21, 100);
+        background-color: #fff;
+      }
+
+      footer .copyright {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      footer .copyright p {
+        color: #fff;
+      }
+
+      .pro-links {
+        margin-top: 10px;
+      }
+
+      .pro-links i {
+        padding: 10px 13px;
+        border: 1px solid rgb(21, 21, 100);
+        cursor: pointer;
+      }
+
+      .pro-links i:hover {
+        background: rgb(21, 21, 100);
+        color: #fff;
+        border: 1px solid rgb(21, 21, 100);
+        cursor: pointer;
+      }
+
+      footer .copyright .pro-links {
+        margin-top: 10px;
+      }
+
+      footer .copyright .pro-links i {
+        background-color: #5f7185;
+        color: #fff;
+      }
+
+      footer .copyright .pro-links i:hover {
+        background-color: #fdc93b;
+        color: #2c2c2c;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(() => {
+        console.log(0);
+        $.ajax({
+          url: "/setData",
+          type: "POST",
+          success: function (result) {
+            console.log(result);
+            document.getElementById("email1").innerHTML = result.email;
+            document.getElementById("phone1").innerHTML = result.phone;
+            document.getElementById("name1").innerHTML = result.name;
+            
+            
+          },
+        });
+      });
+    </script>
+  </head>
+
+  <body style="background-color: #efefef">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand px-2" href="#">
+          <img
+            id="logo"
+            src="images/sks-high-resolution-logo-white-on-transparent-background (1).png"
+            alt="University Logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <p class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </p>
+            <p class="nav-item">
+              <a class="nav-link" href="#info">Information and Guidelines</a>
+            </p>
+            <p class="nav-item">
+              <a class="nav-link" href="application">Application Form</a>
+            </p>
+            <p class="nav-item">
+              <a class="nav-link" href="payment">Payment</a>
+            </p>
+            <p class="nav-item">
+              <a class="nav-link" href="#important_dates">Important Dates</a>
+            </p>
+            <p class="nav-item">
+              <a class="nav-link" href="#support_contacts"
+                >Support and Contacts</a
+              >
+            </p>
+            <p class="nav-item">
+              <a class="nav-link" href="/">Logout</a>
+            </p>
+          </ul>
+        </div>
+      </nav>
+      <div>
+        <br /><br />
+        <div>
+          <div
+            style="
+              font-size: 33px;
+              font-family: Arial, Helvetica, sans-serif;
+              font-weight: 700;
+            "
+          >
+            Dashboard
+          </div>
+          <div class="row">
+            <div
+              class="col-lg-8 m-auto p-2"
+              style="background-color: white; border-radius: 13px"
+            >
+              <div class="d-flex flex-column">
+                <div class="row">
+                  <div class="col-3 py-lg-3 px-lg-4">
+                    <p style="font-weight: 600; font-size: 20px">Name:</p>
+                    <p id="name1"></p>
+                  </div>
+                  <div class="col-3 py-lg-3 px-lg-4">
+                    <p style="font-weight: 600; font-size: 20px">Phoneno:</p>
+                    <p id="phone1"></p>
+                  </div>
+                  <div class="col-3 py-lg-3 px-lg-4">
+                    <p style="font-weight: 600; font-size: 20px">Email:</p>
+                    <p id="email1"></p>
+                  </div>
+                </div>
+                <br />
+              </div>
+            </div>
+            <div
+              class="col-lg-3 m-auto my-sm-3 p-lg-3 p-sm-2"
+              style="background-color: white; border-radius: 13px"
+            >
+              <p style="font-weight: 600; font-size: 20px">
+                Stages of application
+              </p>
+              <div style="list-style-type: none; align-items: start">
+                <p>
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i
+                  ><span style="padding: 0px 5px">Application Form</span>
+                </p>
+                <p>
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i
+                  ><span style="padding: 0px 5px">Payment</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div style="margin: 0px 8px">
+            <div id="info">
+              <p id="info_and_guide">Information and Guidelines</p>
+              <ol style="font-weight: 600">
+                <li>Read the Information Brochure carefully.</li>
+                <li>
+                  Provide all the relevant details correctly, before submission.
+                </li>
+                <li>
+                  An application number will be generated after primary
+                  registration.
+                </li>
+                <li>
+                  Refer your application number for all your future
+                  correspondence.
+                </li>
+                <li>
+                  Available online payment options are Netbanking / Credit /
+                  Debit card / Paytm.
+                </li>
+                <li>
+                  At the time of transaction, if the amount is debited, kindly
+                  wait for an hour to confirm the payment status in same login
+                  page.
+                </li>
+                <li>
+                  If the amount is debited more than one time, it will be
+                  refunded to your account in 5 to 7 working days.
+                </li>
+                <li>Application Cost Rs.1,200</li>
+                <li>
+                  Applicants opting to test centres located in foreign countries
+                  should pay USD 90
+                </li>
+                <li>Application cost is non-refundable.</li>
+              </ol>
+            </div>
+            <div class="row">
+              <div
+                id="important_dates"
+                class="col-sm-6"
+                class="table-responsive"
+                style="margin: 30px 0 0 0"
+              >
+                <table class="table">
+                  <thead>
+                    <tr
+                      style="
+                        background-color: rgb(239, 205, 69);
+                        color: white;
+                        border-radius: 13px 0px 0px 0px;
+                      "
+                      align="center"
+                    >
+                      <td colspan="2"><b>Important Dates</b></td>
+                    </tr>
+
+                    <tr>
+                      <td style="background-color: #fff; color: rgb(0, 0, 0)">
+                        <b>Last date to apply</b>
+                      </td>
+                      <td style="background-color: #fff; color: black">
+                        <b>31<sup>st</sup> March 2023 [Friday]</b>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="background-color: #fff; color: rgb(0, 0, 0)">
+                        <b> Dates of examination (SKSEE-2023) </b>
+                      </td>
+                      <td style="background-color: #ffffff; color: black">
+                        <b
+                          >17<sup>th</sup> April 2023 to 23<sup>rd</sup> April
+                          2023.</b
+                        >
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="background-color: #fff; color: rgb(0, 0, 0)">
+                        <b> Results Declaration </b>
+                      </td>
+                      <td style="background-color: #fff; color: black">
+                        <b>To be announced</b>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="background-color: #fff; color: rgb(0, 0, 0)">
+                        <b> Counselling Date </b>
+                      </td>
+                      <td style="background-color: #fff; color: black">
+                        <b>To be announced</b>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td
+                        style="
+                          background-color: rgb(239, 205, 69);
+                          color: white;
+                        "
+                        colspan="2"
+                        align="center"
+                      >
+                        <b
+                          >SKSEE 2023 will be conducted as CBT (Computer Based
+                          Test) at designated centres in India & Abroad</b
+                        >
+                      </td>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div
+                id="support_contacts"
+                class="col-sm-6"
+                class="table-responsive"
+                style="margin: 30px 0 0 0"
+              >
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <td
+                        align="center"
+                        colspan="2"
+                        style="
+                          background-color: rgb(239, 205, 69);
+                          color: white;
+                        "
+                      >
+                        <b>Support & Contacts</b>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="width: 90%; background-color: #fff">
+                        <font size="3"><b>Land line : 9502205391 </b></font
+                        ><br /><br />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="width: 90%; background-color: #fff">
+                        <font size="3"
+                          ><b>e-mail id : ugadmission@sks.ac.in</b></font
+                        ><br /><br />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td
+                        style="width: 90%; background-color: #fff"
+                        colspan="2"
+                      >
+                        <font size="3"
+                          ><b>
+                            Monday to Friday (9 am to 6 pm) [ Lunch break- 1 pm
+                            to 2 pm ]</b
+                          ></font
+                        >
+                        <br /><br />
+                      </td>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="footer">
+      <footer id="footer">
+        <div class="footer-col">
+          <h3>Top products</h3>
+          <li>Manage Reputation</li>
+          <li>Power tools</li>
+          <li>Managed website</li>
+          <li>Marketing Service</li>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <li>Jobs</li>
+          <li>Brand Assests</li>
+          <li>Investor Relations</li>
+          <li>Terms of Service</li>
+        </div>
+
+        <div class="footer-col">
+          <h3>Features</h3>
+          <li>Manage Reputation</li>
+          <li>Power Tools</li>
+          <li>Manged Website</li>
+          <li>Marketing Service</li>
+        </div>
+
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <li>Guides</li>
+          <li>Research</li>
+          <li>Experts</li>
+          <li>Marketing Service</li>
+        </div>
+
+        <div class="footer-col">
+          <h3>Newsletter</h3>
+          <p>You can trust us. We only send promo offers</p>
+          <div class="subscribe">
+            <input type="text" placeholder="Your Email Address" />
+            <a href="#" class="yellow">SUBSCRIBE</a>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>
+            Copyrights ©2023 All rights reserved | This template is made by SKS
+            University
+          </p>
+          <div class="pro-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
